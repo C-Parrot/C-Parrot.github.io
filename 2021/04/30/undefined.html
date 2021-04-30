@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>软件安装 | </title><meta name="author" content="pilotqvq"><meta name="copyright" content="pilotqvq"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在win10 下使用gccCygwin 简明教程 Cygwin 是一个 Windows 下的类 UNIX 环境。（这句话听起来好土 qaq）Cygwin 移植了大部分 Linux 下的软件，包括但不局限于 Bash、GCC、Git 和 VIM，甚至 GNOME 和 KDE 这类图形界面。至于移植的原理，大致都是将 Linux 下的系统调用在 Windows 下模拟，再进行交叉编译。 许多类似 Cy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件安装">
+<meta property="og:url" content="https://c-parrot.github.io.git/2021/04/30/undefined">
+<meta property="og:site_name">
+<meta property="og:description" content="在win10 下使用gccCygwin 简明教程 Cygwin 是一个 Windows 下的类 UNIX 环境。（这句话听起来好土 qaq）Cygwin 移植了大部分 Linux 下的软件，包括但不局限于 Bash、GCC、Git 和 VIM，甚至 GNOME 和 KDE 这类图形界面。至于移植的原理，大致都是将 Linux 下的系统调用在 Windows 下模拟，再进行交叉编译。 许多类似 Cy">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-04-30T04:45:17.000Z">
+<meta property="article:modified_time" content="2021-04-30T05:03:34.861Z">
+<meta property="article:author" content="pilotqvq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://c-parrot.github.io.git/2021/04/30/undefined"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '软件安装',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-30 13:03:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://raw.githubusercontent.com/C-Parrot/source/master/img/QQ%E6%88%AA%E5%9B%BE20210312180709.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">软件安装</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">Updated</span><time datetime="2021-04-30T05:03:34.861Z" title="undefined 2021-04-30 13:03:34">2021-04-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="软件安装"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="在win10-下使用gcc"><a href="#在win10-下使用gcc" class="headerlink" title="在win10 下使用gcc"></a>在win10 下使用gcc</h1><p>Cygwin 简明教程</p>
+<p>Cygwin 是一个 Windows 下的类 UNIX 环境。（这句话听起来好土 qaq）Cygwin 移植了大部分 Linux 下的软件，包括但不局限于 Bash、GCC、Git 和 VIM，甚至 GNOME 和 KDE 这类图形界面。至于移植的原理，大致都是将 Linux 下的系统调用在 Windows 下模拟，再进行交叉编译。</p>
+<h2 id="许多类似-Cygwin-的东西"><a href="#许多类似-Cygwin-的东西" class="headerlink" title="许多类似 Cygwin 的东西"></a>许多类似 Cygwin 的东西</h2><p>其实主要是这几个：MinGW（-w64）、MSYS（2）、Git for Windows 和 WSL。</p>
+<h2 id="MinGW"><a href="#MinGW" class="headerlink" title="MinGW"></a>MinGW</h2><p>在很 JO 很 JO 以前，世界上还只有 Cygwin 的 1.3.3（现在已经是 3.0.7 了）。虽然当时 Cygwin 还刚刚开始发展，但是其缺点却已经暴露出来了：它实在太大了！所以，一小撮想搞事情的程序员站了出来，fork 了 Cygwin 的 GCC 和相关库文件，并且将它们魔改了一番，使得 GCC 能使用 Windows 的 Visual C++ API。这就成了 MinGW。后来，因为 MinGW 一直在咕咕咕，所以出现了 TDM-GCC 和 MinGW-w64 两个给 MinGW 续命的项目，TDM-GCC 现在也咕咕咕了（可见人类的本质是鸽子），而 MinGW-w64 却给 MinGW 续命成功，一直紧跟着官方 GCC 更新到了现在。</p>
+<p>因为 MinGW 及其后续项目有着种种优点，所以它们经常被作为 Windows 下 C/C++ IDE 的自带编译器，如 Dev-C++ 和 Code::Blocks。而 MinGW 的缺点在于其使用了 Windows 的 API，而这也是 Windows 和 Linux 下会有 <code>%I64d</code> 等破事的原因。</p>
+<h2 id="MSYS"><a href="#MSYS" class="headerlink" title="MSYS"></a>MSYS</h2><p>当 MinGW 出现之后，程序员们发现光有 GCC 不行啊，面对着如此 naive 的 Windows 命令行也照样不能干活，Cygwin 又太大了。所以 MinGW 的一群人再次 fork 了 Cygwin，把它精简了一番，就成了 MSYS。后来，MinGW 咕咕咕了，MSYS 也随之咕咕咕了，又一群程序员 fork 了新版本的 Cygwin，精简了一番，给它加上了 Pacman 包管理器（没错就是 Arch Linux 用的那个），最后给 MSYS 的名字后面加了个 2，成了 MSYS2。</p>
+<h2 id="Git-for-Windows"><a href="#Git-for-Windows" class="headerlink" title="Git for Windows"></a>Git for Windows</h2><p>随着 Git 的快速完善，将 Git 移植到 Windows 的呼声越来越高，可是 Git 需要很多 Linux 下的命令行工具，所以不想重复造轮子的 Git 开发者们找到了 MSYS2，又将 MSYS2 做了一番精简和针对 Git 的修改，把 Git 放了进去。</p>
+<h2 id="WSL"><a href="#WSL" class="headerlink" title="WSL"></a>WSL</h2><p>WSL 和上述没有任何关系，这是我们的巨硬微软感觉 Linux 的那一套很吼哇，就搞来 Linux 内核进行了一番魔改，在加上了一些针对 Windows 的处理，bling! 的一声，就有了跑在 Windows 下了 Linux。当然因为也有类似 Cygwin 的模拟，所以在磁盘性能方面较慢，比起 Cygwin 差多了。好处在于 它提供了较为原汁原味的 Linux 环境。</p>
+<p>当然 WSL 也在进步，WSL 2 直接搞了个虚拟机跑原生的 Linux 内核，再加上一些可以较完美地整合 Linux 的修改，这样做性能就可以提高很多。可惜我并不想用 Windows Insider，WSL 2 也暂时没法用。</p>
+<details>
+    <summary>安装MinGW</summary>
+
+<p>​    </p>
+<ol>
+<li><p>下载<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/">MinGW-w64 - for 32 and 64 bit Windows</a></p>
+</li>
+<li><p>添加环境变量</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -v</span><br><span class="line">gdb -v</span><br><span class="line">make -v</span><br></pre></td></tr></table></figure>
+
+<p>git-bash中添加路径，就可以在git-bash中使用相关命令了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ export PATH&#x3D;&quot;c:&#x2F;...&#x2F;mingw64&#x2F;bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</details>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">pilotqvq</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://c-parrot.github.io.git/2021/04/30/undefined">https://c-parrot.github.io.git/2021/04/30/undefined</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/04/28/hexo-related"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/hexo相关/QQ截图20210424115823.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">与hexo相关的一切</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8win10-%E4%B8%8B%E4%BD%BF%E7%94%A8gcc"><span class="toc-number">1.</span> <span class="toc-text">在win10 下使用gcc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B8%E5%A4%9A%E7%B1%BB%E4%BC%BC-Cygwin-%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="toc-number">1.1.</span> <span class="toc-text">许多类似 Cygwin 的东西</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MinGW"><span class="toc-number">1.2.</span> <span class="toc-text">MinGW</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSYS"><span class="toc-number">1.3.</span> <span class="toc-text">MSYS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-for-Windows"><span class="toc-number">1.4.</span> <span class="toc-text">Git for Windows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WSL"><span class="toc-number">1.5.</span> <span class="toc-text">WSL</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By pilotqvq</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'c-parrot',
+      clientSecret: 'zhxyok38',
+      repo: 'c-parrot.github.io',
+      owner: 'c-parrot',
+      admin: ['c-parrot'],
+      id: '0edfbc9cb022bdfccb893f8bf803d9ff',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
