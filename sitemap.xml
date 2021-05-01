@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://c-parrot.github.io.git/2021/04/28/hexo-related</loc>
+    
+    <lastmod>2021-04-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://c-parrot.github.io.git/2021/04/30/undefined</loc>
+    
+    <lastmod>2021-04-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://c-parrot.github.io.git/2021/04/27/undefined</loc>
+    
+    <lastmod>2021-04-27</lastmod>
+    
+  </url>
+  
+
+  <url>
+    <loc>https://c-parrot.github.io.git/</loc>
+    <lastmod>2021-05-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://c-parrot.github.io.git/tags/Hexo/</loc>
+    <lastmod>2021-05-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://c-parrot.github.io.git/tags/Github/</loc>
+    <lastmod>2021-05-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://c-parrot.github.io.git/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2021-05-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://c-parrot.github.io.git/categories/%E5%86%99%E4%BD%9C/</loc>
+    <lastmod>2021-05-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
