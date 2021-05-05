@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://c-parrot.github.io/2021/04/28/hexo-related</loc>
+    <loc>https://c-parrot.github.io/2021/04/30/undefined</loc>
     
-    <lastmod>2021-04-30</lastmod>
+    <lastmod>2021-05-05</lastmod>
     
   </url>
   
   <url>
-    <loc>https://c-parrot.github.io/2021/04/30/undefined</loc>
+    <loc>https://c-parrot.github.io/2021/04/28/hexo-related</loc>
     
-    <lastmod>2021-04-30</lastmod>
+    <lastmod>2021-05-05</lastmod>
     
   </url>
   
@@ -25,7 +25,7 @@
 
   <url>
     <loc>https://c-parrot.github.io/</loc>
-    <lastmod>2021-05-01</lastmod>
+    <lastmod>2021-05-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -33,21 +33,21 @@
   
   <url>
     <loc>https://c-parrot.github.io/tags/Hexo/</loc>
-    <lastmod>2021-05-01</lastmod>
+    <lastmod>2021-05-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://c-parrot.github.io/tags/Github/</loc>
-    <lastmod>2021-05-01</lastmod>
+    <lastmod>2021-05-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://c-parrot.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2021-05-01</lastmod>
+    <lastmod>2021-05-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -55,8 +55,15 @@
 
   
   <url>
+    <loc>https://c-parrot.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2021-05-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://c-parrot.github.io/categories/%E5%86%99%E4%BD%9C/</loc>
-    <lastmod>2021-05-01</lastmod>
+    <lastmod>2021-05-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
