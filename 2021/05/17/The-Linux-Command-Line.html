@@ -1,0 +1,330 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux命令行大全-读书笔记 | </title><meta name="author" content="pilotqvq"><meta name="copyright" content="pilotqvq"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="英文（开源）：http:&#x2F;&#x2F;linuxcommand.org&#x2F;tlcl.php 6、重定向• sort －排序文本行  • uniq －报道或省略重复行  • grep －打印匹配行  • wc －打印文件中换行符，字，和字节个数  • head －输出文件第一部分  • tail - 输出文件最后一部分  • tee - 从标准输入读取数据，并同时写到标准输出和文件  默认情况下，标准输出和标准">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令行大全-读书笔记">
+<meta property="og:url" content="https://c-parrot.github.io/2021/05/17/The-Linux-Command-Line">
+<meta property="og:site_name">
+<meta property="og:description" content="英文（开源）：http:&#x2F;&#x2F;linuxcommand.org&#x2F;tlcl.php 6、重定向• sort －排序文本行  • uniq －报道或省略重复行  • grep －打印匹配行  • wc －打印文件中换行符，字，和字节个数  • head －输出文件第一部分  • tail - 输出文件最后一部分  • tee - 从标准输入读取数据，并同时写到标准输出和文件  默认情况下，标准输出和标准">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/Linux命令行大全/QQ截图20170811214024.png">
+<meta property="article:published_time" content="2021-05-17T01:43:38.000Z">
+<meta property="article:modified_time" content="2021-05-17T01:44:30.507Z">
+<meta property="article:author" content="pilotqvq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/Linux命令行大全/QQ截图20170811214024.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://c-parrot.github.io/2021/05/17/The-Linux-Command-Line"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"HPFFJ9C6DB","apiKey":"78e3e87b096c5c0bff76287be921d775","indexName":"pilotqvq","hits":{"per_page":6},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux命令行大全-读书笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-17 09:44:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/hexo相关/无职转生.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/"></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Linux命令行大全-读书笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">Updated</span><time datetime="2021-05-17T01:44:30.507Z" title="undefined 2021-05-17 09:44:30">2021-05-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux命令行大全-读书笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>英文（开源）：<a target="_blank" rel="noopener" href="http://linuxcommand.org/tlcl.php">http://linuxcommand.org/tlcl.php</a></p>
+<h1 id="6、重定向"><a href="#6、重定向" class="headerlink" title="6、重定向"></a>6、重定向</h1><p>• sort －排序文本行 </p>
+<p>• uniq －报道或省略重复行 </p>
+<p>• grep －打印匹配行 </p>
+<p>• wc －打印文件中换行符，字，和字节个数 </p>
+<p>• head －输出文件第一部分 </p>
+<p>• tail - 输出文件最后一部分 </p>
+<p>• tee - 从标准输入读取数据，并同时写到标准输出和文件</p>
+<hr>
+<p>默认情况下，标准输出和标准错误连接到屏幕，你可以把他们重定向到文件（将输入保存的文件中）。</p>
+<p>利用重定向，，可以把多个命令连接起来组成管道（filter)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls &gt; ls-output.txt &#x2F;&#x2F;标准输出重定向符&gt;，如果文件不存在，则建立。</span><br><span class="line">ls &gt;&gt; ls-output.txt &#x2F;&#x2F;将输入追加到文件末尾。</span><br><span class="line">ls &amp;&gt; .txt &#x2F;&#x2F;标准输出和错误重定向到文件</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="cat-–-Concatenate-Files"><a href="#cat-–-Concatenate-Files" class="headerlink" title="cat – Concatenate Files"></a>cat – Concatenate Files</h2><p>功能是将标准输入输出到标准输出上：</p>
+<p><code>cat</code>：等待用户输入，然后将输入的打印到输出上，ctrl+d结束。</p>
+<p>因此，如果这样：<code>cat [file]</code>：意为将输入换成一个或多个文件。所以该命令常常用来查看简短的文本文件（short text files)的内容（display without paging)。</p>
+<p>如果这样：<code>cat  &gt; xx.txt</code>：意为将输出换成为文本，用户输入输出到xx.txt文本中。cat 可以接受不只一个文件作为参数，所以也可以用来把文件连接在一起：cat movie.mpeg.0* &gt; movie.mpeg</p>
+<p>cat有一些选项可以用来更好的可视化文本。</p>
+<p><code>-A</code>：用来显示非打印字符，如tab键，回车键。</p>
+<p><code>-n</code>：打开显示行号。</p>
+<p><code>-s</code>：将多个空行压缩成一行</p>
+<h2 id="pipeline"><a href="#pipeline" class="headerlink" title="pipeline"></a>pipeline</h2><p>符号<code>|</code>指的是左边命令的输出是右侧命令的输入。如果一个命令有多个<code>|</code>，这叫做filters。</p>
+<p>例如：<code>ls /bin /usr/bin | sort |less</code>：将文件夹bin和usr/bin中的文件，排列后显示到屏幕上</p>
+<p><code>|</code>与<code>&gt;</code>的区别是：前者符号右侧是命令，后者右侧是文件。</p>
+<h2 id="uniq-Report-or-Omit-Repeated-Lines"><a href="#uniq-Report-or-Omit-Repeated-Lines" class="headerlink" title="uniq - Report or Omit Repeated Lines"></a>uniq - Report or Omit Repeated Lines</h2><p><code>uniq</code>：去掉重复的部分。<code>uniq -d</code>：只查看重复的内容</p>
+<h2 id="wc-display-the-number-of-lines-words-and-bytes-contained-in-files"><a href="#wc-display-the-number-of-lines-words-and-bytes-contained-in-files" class="headerlink" title="wc - display the number of lines, words and bytes contained in files"></a>wc - display the number of lines, words and bytes contained in files</h2><p><code>wc -l x.txt</code>：显示文件有多少行</p>
+<h2 id="grep-print-lines-matching-a-pattern"><a href="#grep-print-lines-matching-a-pattern" class="headerlink" title="grep - print lines matching a pattern"></a>grep - print lines matching a pattern</h2><p><code>grep pattern [file]</code>：输出包含pattern的行</p>
+<h2 id="head-tail"><a href="#head-tail" class="headerlink" title="head/tail"></a>head/tail</h2><p><code>tails -n 5 x.txt</code>：显示文件的最后五行，默认是10行。</p>
+<p><code>tails -f x.txt</code>：可以实时监控文件，立即在屏幕上显示在文件尾部新添加的行。</p>
+<h2 id="tee"><a href="#tee" class="headerlink" title="tee"></a>tee</h2><p><code>ls /usr/bin | sort | uniq | grep zip | tail -n 5 | wc -l | tee ls.txt | grep zip</code>：tee会将它的输入输出到两个地方：1.给文件 2. 给filters中的下一个命令</p>
+<h1 id="10、进程"><a href="#10、进程" class="headerlink" title="10、进程"></a>10、进程</h1><p>● ps – Report a snapshot of current processes </p>
+<p>● top – Display tasks </p>
+<p>● jobs – List active jobs </p>
+<p>● bg – Place a job in the background </p>
+<p>● fg – Place a job in the foreground </p>
+<p>● kill – Send a signal to a process </p>
+<p>● killall – Kill processes by name </p>
+<p>● shutdown – Shutdown or reboot the system</p>
+<p><code>ps</code>：显示进程快照</p>
+<p><code>ps x</code>：将守护进程也显示出来</p>
+<p><code>ps aux</code>：显示更多信息</p>
+<p><code>top</code>：see <strong>dynamic</strong> view of the machine’s activity。显示信息一部分是system summary，另一部分是a table of process sorted by CPU activity.</p>
+<p><code>程序 &amp;</code>：后台运行程序。返回一个信息，称为job control，如<code>[1] 28236</code>，第一个数叫 jobspec 。</p>
+<p><code>job</code>：查看所有job</p>
+<p><code>fg &amp;1</code>：jobspec是1的进程返回至前台。</p>
+<p><code>kill</code>： 发送信号给进程，默认是TERM（terminate），终止进程。</p>
+<p><code>kill [-signal] PID</code></p>
+<p>ctrl-c 发送的信号是INT（interrupt），it will <strong>usually</strong> terminate a program。</p>
+<p><code>pstree</code>：以树的形式显示进程，可以看到进程之间的父子关系</p>
+<p><code>vmstat</code>：内存，内存交换，I/O的快照。<code>vmstat 5 2</code>：每隔5秒采样两次。</p>
+<h1 id="13、vi–-“vee-eye”-文本编辑器"><a href="#13、vi–-“vee-eye”-文本编辑器" class="headerlink" title="13、vi– “vee eye” 文本编辑器"></a>13、vi– “vee eye” 文本编辑器</h1><p>大多数Linux发行版本不包含真正的vi。通常，vim在Linux是”vi“的符号链接（或别名）。vim是vi的高级替代版本。</p>
+<p>vi是一个模式编辑器，几乎每个按键都是一个命令。如果迷失在vi中，按两次esc回到普通模式。</p>
+<p><code>vim foo.txt</code>：打开文件，如果文件不存在则创建。</p>
+<p><code>:q</code>：退出。如果修改了文件则不能退出。后加感叹号，强制退出<code>:q!</code> 。</p>
+<p><code>:w</code>：保存</p>
+<p><code>i</code>：插入模式。按下esc返回命令模式。</p>
+<p><code>/character</code>：全文查找。重复键入<code>n</code>会向下继续查找。</p>
+<h1 id="16、网络"><a href="#16、网络" class="headerlink" title="16、网络"></a>16、网络</h1><p>● ping – Send an ICMP ECHO_REQUEST to network hosts </p>
+<p>● traceroute – Print the route packets trace to a network host </p>
+<p>● ip – Show / manipulate routing, devices, policy routing and tunnels </p>
+<p>● netstat – Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships </p>
+<p>● ftp – Internet file transfer program </p>
+<p>● wget – Non-interactive network downloader </p>
+<p>● ssh – OpenSSH SSH client (remote login program)</p>
+<hr>
+<p>用ip代替ipconfig</p>
+<p>**<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Netstat">netstat</a>**：是一个基于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2">命令行界面</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">网络</a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AE%9E%E7%94%A8%E7%A8%8B%E5%BA%8F">实用工具</a>，可显示当前的网络状态，包括<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE">传输控制协议</a>层的连线状况、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E8%A1%A8">路由表</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3">网络接口</a>状态和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE">网络协议</a>的统计信息等。</p>
+<p><code>netstat</code>可用于查找网络中的问题，并可通过计算<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F">网络流量</a>来度量网络性能。尽管该工具仍然被包含在许多<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Linux%E5%8F%91%E8%A1%8C%E7%89%88">Linux发行版</a>中，但基本都被看作过时、应被替代的工具。</p>
+<p>在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Linux">Linux</a>上，推荐使用<code>ss</code>替代<code>netstat</code>，使用<code>ip route</code>替代<code>netstat -r</code>，使用<code>ip -s link</code>替代<code>netstat -i</code>，使用<code>ip maddr</code>替代<code>netstat -g</code></p>
+<p><strong>ss command</strong> is a tool that is used for displaying network socket related information on a Linux system.</p>
+<p>ss<a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/ss.html">选项</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-p, --processes 显示使用套接字（socket）的进程</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="17、查找文件"><a href="#17、查找文件" class="headerlink" title="17、查找文件"></a>17、查找文件</h1><p><code>locate</code>：通过文件名在数据库中查找。数据库由updatedb更新，频率为一天。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">updatedb   &#x2F;&#x2F;先更新数据库，locate就可以查找到新建的文件了</span><br><span class="line">locate bin&#x2F;zip</span><br></pre></td></tr></table></figure>
+
+<p><code>--regexp</code>option指使用基本的正则，<code>--regex</code>指可以使用扩展的正则。</p>
+<hr>
+<p><code>find</code>：可以通过各种特性在指定的目录下查找文件、目录、符号链接，设备文件。</p>
+<p><code>find ~ \( -type f -name &quot;*.JPG&quot; -size +1M \) -or \( -type d -not -perms 0700 \) -delete</code>：将用户根目录下的大小超过1M的文件名以.JPG结尾的文件 与 安全类型不是0700的目录删掉。（估计不可以这样的删除文件夹，这里主要是演示用法）</p>
+<p>使用正则表达式：<code>find . -regex &#39;.*&#39;</code>。</p>
+<p>find与grep使用正则上的区别：grep输出包含匹配项的行，find需要严格匹配。</p>
+<hr>
+<p><code>touch</code>：  is usually used to set or update the access, change, and modify times of files. However, if a filename argument is that of a nonexistent file, an empty file is created. </p>
+<h1 id="19、正则表达式"><a href="#19、正则表达式" class="headerlink" title="19、正则表达式"></a>19、正则表达式</h1><p>元字符（matacharacter):</p>
+<ul>
+<li><p>basic regular expressions(BRE) : <code>^ &amp; . [  ] *</code></p>
+</li>
+<li><p>extended regular expressions(ERE) add following : <code>( ) &#123; &#125; ? + |</code></p>
+</li>
+</ul>
+<p>重复元字符：<code>? + * &#123; &#125;</code></p>
+<p><code>?</code>：0或1个匹配。means “Make the preceding element optional”.</p>
+<hr>
+<p><code>()</code>和<code>|</code>一起配合使用。<code>a(bc|de)</code>与<code>abc|de</code>是两个意思</p>
+<hr>
+<p>grep(global regular expression print): 默认支持基本的，添加选项<code>-E</code>支持扩展的正则表达式。</p>
+<p><code>.</code>：匹配任意一个字符</p>
+<p><code>[]</code>：匹配括号中的一个字符。</p>
+<p>查找文件内容，less支持ERE，vim支持BRE。例如要匹配”(232) 298-2265”</p>
+<p>使用less：<code>^\([0-9]&#123;3&#125;\) [0-9]&#123;3&#125;-[0-9]&#123;4&#125;$</code>。对于ERE，’(‘ 与 ‘)’ 是元字符，使用\转为原义字符（Literals)</p>
+<p>使用vim：<code>^([0-9]\&#123;3\&#125;) [0-9]\&#123;3\&#125;-[0-9]\&#123;4\&#125;$</code>。‘\’ 的使用同上，将literals 转为matacharacter。</p>
+<h1 id="23、-编译文件"><a href="#23、-编译文件" class="headerlink" title="23、 编译文件"></a>23、 编译文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure &#x2F;&#x2F;直接写configure，shell会去默认的文件夹去找执行文件。所以应该加上.&#x2F;用来指定执行文件的位置是在当前目录。会生成一个  			&#x2F;&#x2F;makefile文件</span><br><span class="line">make  &#x2F;&#x2F;按照目前文件夹下的makerfile文件来执行程序</span><br><span class="line">sudo make installed &#x2F;&#x2F;将编译的执行文件注册到系统中，可以在其他目录下直接执行而不需要指定目标位置</span><br></pre></td></tr></table></figure>
+<ul>
+<li>gcc(GUN C Compiler)用来编译c文件。脚本语言如perl, ruby不需要编译这一步而能直接运行，解释器（interperter）读取源代码的每一行并执行。</li>
+<li>压缩文件.tar.gz，又称tarbll，该文件类型能记录该文件的树结构分布。diction项目属于gnu project software，会遵循一些标准。其中一个是解压之后是一个文件夹，命名为 <em>project-x.xx</em>。有些压缩文件会将文件们直接解压到当前文件夹，会造成文件混乱。在解压之前，用<code>tar tzvf tarfile |head</code>来确认该压缩文件记录的树结构，决定是否直接解压还是解压到新建的文件夹中。</li>
+<li>make命令能保证最终生成的可执行文件相对于它的依赖文件是最新的，当有文件更新时，它能够（手动）重新编译生成新的可执行文件。如果没有变动，make命令不会起作用。</li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h2><p>to see, set, or limit the resource usage of the current user.  It is used to return the number of open file descriptors for each process. It is also used to set restrictions on the resources used by a process.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">pilotqvq</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://c-parrot.github.io/2021/05/17/The-Linux-Command-Line">https://c-parrot.github.io/2021/05/17/The-Linux-Command-Line</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/Linux命令行大全/QQ截图20170811214024.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/05/10/niuke-online-judge"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/算法/QQ截图20210509171651.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">牛客网笔试OJ判题系统</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#6%E3%80%81%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-number">1.</span> <span class="toc-text">6、重定向</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cat-%E2%80%93-Concatenate-Files"><span class="toc-number">1.1.</span> <span class="toc-text">cat – Concatenate Files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pipeline"><span class="toc-number">1.2.</span> <span class="toc-text">pipeline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uniq-Report-or-Omit-Repeated-Lines"><span class="toc-number">1.3.</span> <span class="toc-text">uniq - Report or Omit Repeated Lines</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wc-display-the-number-of-lines-words-and-bytes-contained-in-files"><span class="toc-number">1.4.</span> <span class="toc-text">wc - display the number of lines, words and bytes contained in files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep-print-lines-matching-a-pattern"><span class="toc-number">1.5.</span> <span class="toc-text">grep - print lines matching a pattern</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head-tail"><span class="toc-number">1.6.</span> <span class="toc-text">head&#x2F;tail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tee"><span class="toc-number">1.7.</span> <span class="toc-text">tee</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10%E3%80%81%E8%BF%9B%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">10、进程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13%E3%80%81vi%E2%80%93-%E2%80%9Cvee-eye%E2%80%9D-%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">13、vi– “vee eye” 文本编辑器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16%E3%80%81%E7%BD%91%E7%BB%9C"><span class="toc-number">4.</span> <span class="toc-text">16、网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17%E3%80%81%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">17、查找文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">19、正则表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#23%E3%80%81-%E7%BC%96%E8%AF%91%E6%96%87%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">23、 编译文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">8.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ulimit"><span class="toc-number">8.1.</span> <span class="toc-text">ulimit</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By pilotqvq</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/algolia.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'e53a0a1cfef738bdcf12',
+      clientSecret: '78d3614c9635daf100666db51131822370f2fa50',
+      repo: 'C-Parrot.github.io',
+      owner: 'c-parrot',
+      admin: ['c-parrot'],
+      id: 'f6fa018a3d3c3506947ffcc49b0514d2',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='/'|| '/' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body></html>
