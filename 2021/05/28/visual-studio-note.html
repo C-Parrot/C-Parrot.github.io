@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>宇宙最强IDE使用指南-VS | </title><meta name="author" content="pilotqvq"><meta name="copyright" content="pilotqvq"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="属性页$(OutDir)：输出文件目录的路径，相对于项目目录。这解析为“输出目录”属性的值。$(ProjectName)：项目的基本名称。$(SolutionDir)：解决方案的目录（定义形式：驱动器 + 路径）；包括尾部的反斜杠“\”。 $(Configuration)：当前项目配置的名称（例如“Debug”）。$(Platform)：当前项目平台的名称（例如“x32”）。$(ProjectDi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="宇宙最强IDE使用指南-VS">
+<meta property="og:url" content="https://c-parrot.github.io/2021/05/28/visual-studio-note">
+<meta property="og:site_name">
+<meta property="og:description" content="属性页$(OutDir)：输出文件目录的路径，相对于项目目录。这解析为“输出目录”属性的值。$(ProjectName)：项目的基本名称。$(SolutionDir)：解决方案的目录（定义形式：驱动器 + 路径）；包括尾部的反斜杠“\”。 $(Configuration)：当前项目配置的名称（例如“Debug”）。$(Platform)：当前项目平台的名称（例如“x32”）。$(ProjectDi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/TIM截图20180706132730.png">
+<meta property="article:published_time" content="2021-05-28T03:54:05.000Z">
+<meta property="article:modified_time" content="2021-05-30T05:20:34.793Z">
+<meta property="article:author" content="pilotqvq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/TIM截图20180706132730.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://c-parrot.github.io/2021/05/28/visual-studio-note"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"HPFFJ9C6DB","apiKey":"78e3e87b096c5c0bff76287be921d775","indexName":"pilotqvq","hits":{"per_page":6},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '宇宙最强IDE使用指南-VS',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-30 13:20:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/hexo相关/无职转生.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/"></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">宇宙最强IDE使用指南-VS</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">Updated</span><time datetime="2021-05-30T05:20:34.793Z" title="undefined 2021-05-30 13:20:34">2021-05-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="宇宙最强IDE使用指南-VS"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="属性页"><a href="#属性页" class="headerlink" title="属性页"></a>属性页</h1><p>$(OutDir)：输出文件目录的路径，相对于项目目录。这解析为“输出目录”属性的值。<br>$(ProjectName)：项目的基本名称。<br>$(SolutionDir)：解决方案的目录（定义形式：驱动器 + 路径）；包括尾部的反斜杠“\”。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image002.png"><br>$(Configuration)：当前项目配置的名称（例如“Debug”）。<br>$(Platform)：当前项目平台的名称（例如“x32”）。<br>$(ProjectDir)：项目的目录（定义形式：驱动器 + 路径）；包括尾部的反斜杠“\”。<br><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image003.png"><br>$(ProjectPath)：项目的绝对路径名（定义形式：驱动器 + 路径 + 基本名称 + 文件扩展名）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image004.png"></p>
+<p>输出目录（即生成.exe文件的目录），中间目录（即中间文件的目录）。</p>
+<p>修改了输出文件的目录，那我们也必须修改我们的调试目录，不然就无法调试了。虽然编译通过了，但并没像你想的那样出现控制台的“黑窗口”，原因就是我们没有修改调试目录:</p>
+<p>将调试目录修改为$(OutDir)就可以了，VS2019默认配置-输出文件目录和调试目录就不一样。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image005.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image006.png"></p>
+<p>命令参数一项也是比较重要的，如果你开发的是一个带有命令行参数的项目，你调试的时候就可以在这里设置传给程序的命令行参数来进行调试了。你是否还记得你运行一个带有命令行参数的程序时是出现一个黑框框然后马上就消失了，什么也不会做，除非你是将该程序拖到命令提示符下运行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image007.png"></p>
+<p><strong>附加包含目录</strong></p>
+<p>设置其他库的.h头文件的目录，一般放在库的include文件夹下。</p>
+<p><strong>附加库目录</strong></p>
+<p>设置其他库的lib以及.dll链接库的目录，一般放在库的lib下。</p>
+<p>双击运行程序，除非你设置了所依赖的dll的环境变量，否则程序仍然无法运行，因为程序无法找到dll模块。你可以手动把这些.dll拷贝到.exe文件所在的文件夹，但现在有一个更好的办法，如下图:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image008.png"></p>
+<p>我们可以在上面的命令行中填写我们在重新生成完程序后，执行的命令。我们可以在这里使用copy命令，来将程序需要的.dll文件自动拷贝到.exe文件所在的目录。当然，在这里你可以做更多的事情，比如如果你的程序需要读取配置文件，你也可以把配置文件拷贝过来等。</p>
+<p>最后，把配置由Debug改变Release再将Release下的所有这些设置重新设置成Debug相同的就可以了。</p>
+<p>路径推荐使用编译器提供给我们的宏变量，而尽量不要使用绝对的名称，这样程序更具有移植性。</p>
+<p>例如，如果某外部库的目录为Win32\Debug与Win32\Release或Win64\Debu与Win64\Release。这样我们使用$(Platform)$(Configuration)进行设置的时候就不需要再去管什么平台以及是Debug还是Release版本。因为编译器会自动为我们切换，当选择Debug进行编译时，编译器会自动链接到Debug版本，当选择Release进行编译时，会自动链接到Release版本。</p>
+<p>还要注意的就是，如果有某些项目是作为导出链接库用的。需要把导出的dll, lib（即输出文件路径）设置到上面的Bin目录下。然后在需要使用导出的dll和lib文件的项目中设置</p>
+<p>项目依赖项这前者，并设置附加库目录和附加依赖项。这样可以很方便的使用同一解决方案中其他项目导出的链接库了。</p>
+<p>以上就是我们一般需要设置的项目属性。</p>
+<p>代码运行之后，where’s my thing I made? </p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image009.png"></p>
+<p>直接运行hh.exe, cmd 窗口闪了下（并不保持状态）</p>
+<p>If we don’t add a Console.ReadLine or it doesn’t wait for a feedback</p>
+<p>Why don’t we run that from the command prompt?</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image010.png"></p>
+<p>PS：“Tab” are friend in VS, and it’s our friend at the command line.</p>
+<p>输入h，按下tab，自动补全名称，再按tab，切换以h开头的文件</p>
+<p>Obj中放的是临时文件，bin与obj可以删掉，运行后就能重新生成</p>
+<h1 id="自定义："><a href="#自定义：" class="headerlink" title="自定义："></a>自定义：</h1><p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image012.png"></p>
+<h1 id="快捷键："><a href="#快捷键：" class="headerlink" title="快捷键："></a>快捷键：</h1><h2 id="C"><a href="#C" class="headerlink" title="C#"></a>C#</h2><p>VS切换代码自动补全模式：可以切换代码编写时，使用tab键自动补全，还是使用空格键自动补全。</p>
+<p>切换方式：1. 快捷键：ctrl+art+space 2. 编辑菜单-&gt;Intellisense-&gt;切换代码自动补全。</p>
+<p>for(光标紧跟r后)，双击Tab : 自动补全for循环语句 or f Tab补全，Tab</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image015.png"></p>
+<p>批量重命名： ctrl+r, ctrl+r</p>
+<h3 id="Code-Snippets"><a href="#Code-Snippets" class="headerlink" title="Code Snippets"></a>Code Snippets</h3><p>Prop (property) ：属性。Tab twice to insert the snippet.</p>
+<p>Tab：在黄色中切换</p>
+<p>Endter：光标到语句的最后</p>
+<p>ctor：构造器</p>
+<p>cw：console.writeline</p>
+<p>svm：void Main方法</p>
+<p>sim：int Main</p>
+<p>class/enum/interface/struct</p>
+<h2 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h2><h3 id="给程序设置图标"><a href="#给程序设置图标" class="headerlink" title="给程序设置图标"></a>给程序设置图标</h3><p>准备好一张图片，在网上找个图片在线转换网站(<a target="_blank" rel="noopener" href="https://www.easyicon.net/covert/)%E8%BD%AC%E6%8D%A2%E6%88%90.ico%E6%96%87%E4%BB%B6">https://www.easyicon.net/covert/)转换成.ico文件</a></p>
+<p>项目右键-&gt;添加-&gt;资源-&gt;icon-&gt;导入-&gt;选中.ico-&gt;打开-&gt;重新编译.exe就有图标了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image022.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image023.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image024.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image025.png"></p>
+<h3 id="VS版本、GCC版本与C-版本的对应关系"><a href="#VS版本、GCC版本与C-版本的对应关系" class="headerlink" title="VS版本、GCC版本与C++版本的对应关系"></a>VS版本、GCC版本与C++版本的对应关系</h3><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B">https://zh.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B</a></p>
+<p>做嵌入式开发经常遇到一些编译器和C++版本不匹配的问题，现整理如下：</p>
+<p>微软的C/C++编译器有一个内置的宏<code>_MSC_VER</code>来表示编译器的当前版本。</p>
+<p>各种C++标准对应的编译器支持情况，请参考官方的对照表：<a target="_blank" rel="noopener" href="http://en.cppreference.com/w/cpp/compiler_support">C++ compiler support </a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image026.png"></p>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warnings-by-compiler-version?view=msvc-160">https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warnings-by-compiler-version?view=msvc-160</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image027.png"></p>
+<p>gcc版本的发布时间：<a target="_blank" rel="noopener" href="http://gcc.gnu.org/releases.html">http://gcc.gnu.org/releases.html</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image028.png"></p>
+<p>VC全名是Microsoft Visual C++是微软出的一个集成的c,c++开发环境，</p>
+<p>在Opencv中，对vs的版本采取的是VS对应的尾号版本的方式，比如VS2019version16，那vc16就代表vs2019。是下面这样的关系，</p>
+<p>Opencv 中的vc版本与vs版本对应关系如下所示：</p>
+<p>Visual Studio 2010 ： vc10<br> Visual Studio 2012 ： vc11<br> Visual Studio 2013 ： vc12<br> Visual Studio 2015 ： vc14<br> Visual Studio 2017 ： vc15</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image029.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/image030.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">pilotqvq</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://c-parrot.github.io/2021/05/28/visual-studio-note">https://c-parrot.github.io/2021/05/28/visual-studio-note</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/vs/TIM截图20180706132730.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/05/26/git-github"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/githubNote/Persepolis.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">github入门与实战-读书笔记</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E9%A1%B5"><span class="toc-number">1.</span> <span class="toc-text">属性页</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">自定义：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">快捷键：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.1.</span> <span class="toc-text">C#</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-Snippets"><span class="toc-number">3.1.1.</span> <span class="toc-text">Code Snippets</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-1"><span class="toc-number">3.2.</span> <span class="toc-text">C++</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E7%A8%8B%E5%BA%8F%E8%AE%BE%E7%BD%AE%E5%9B%BE%E6%A0%87"><span class="toc-number">3.2.1.</span> <span class="toc-text">给程序设置图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VS%E7%89%88%E6%9C%AC%E3%80%81GCC%E7%89%88%E6%9C%AC%E4%B8%8EC-%E7%89%88%E6%9C%AC%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="toc-number">3.2.2.</span> <span class="toc-text">VS版本、GCC版本与C++版本的对应关系</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By pilotqvq</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/algolia.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'e53a0a1cfef738bdcf12',
+      clientSecret: '78d3614c9635daf100666db51131822370f2fa50',
+      repo: 'C-Parrot.github.io',
+      owner: 'c-parrot',
+      admin: ['c-parrot'],
+      id: 'b1866b3a0c9fdfdb8e822691bdbdeaef',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='/'|| '/' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body></html>
