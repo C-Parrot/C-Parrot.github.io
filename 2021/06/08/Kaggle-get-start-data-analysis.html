@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kaggle入门比赛 - 笔记 | </title><meta name="author" content="pilotqvq"><meta name="copyright" content="pilotqvq"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本博客记录了笔者做的一些入门比赛，主要分析比赛所用的数据集，在应对不同的数据集的数据格式及其内容分布时所采用的方法。由于比赛代码中的网络框架部分很简单（没什么技巧），故省略。 Aerial Cactus identification比赛地址：https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;aerial-cactus-identification DescriptionTo assess the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kaggle入门比赛 - 笔记">
+<meta property="og:url" content="https://c-parrot.github.io/2021/06/08/Kaggle-get-start-data-analysis">
+<meta property="og:site_name">
+<meta property="og:description" content="本博客记录了笔者做的一些入门比赛，主要分析比赛所用的数据集，在应对不同的数据集的数据格式及其内容分布时所采用的方法。由于比赛代码中的网络框架部分很简单（没什么技巧），故省略。 Aerial Cactus identification比赛地址：https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;aerial-cactus-identification DescriptionTo assess the">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/QQ%E6%88%AA%E5%9B%BE20210604192812.png">
+<meta property="article:published_time" content="2021-06-08T03:29:34.254Z">
+<meta property="article:modified_time" content="2021-06-11T03:59:24.889Z">
+<meta property="article:author" content="pilotqvq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/QQ%E6%88%AA%E5%9B%BE20210604192812.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://c-parrot.github.io/2021/06/08/Kaggle-get-start-data-analysis"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"HPFFJ9C6DB","apiKey":"78e3e87b096c5c0bff76287be921d775","indexName":"pilotqvq","hits":{"per_page":6},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Kaggle入门比赛 - 笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-06-11 11:59:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/hexo相关/无职转生.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/"></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Kaggle入门比赛 - 笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">Updated</span><time datetime="2021-06-11T03:59:24.889Z" title="undefined 2021-06-11 11:59:24">2021-06-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>10min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Kaggle入门比赛 - 笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>本博客记录了笔者做的一些入门比赛，主要分析比赛所用的数据集，在应对不同的数据集的数据格式及其内容分布时所采用的方法。由于比赛代码中的网络框架部分很简单（没什么技巧），故省略。</p>
+<h1 id="Aerial-Cactus-identification"><a href="#Aerial-Cactus-identification" class="headerlink" title="Aerial Cactus identification"></a>Aerial Cactus identification</h1><p>比赛地址：<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/aerial-cactus-identification">https://www.kaggle.com/c/aerial-cactus-identification</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>To assess the impact of climate change on Earth’s flora and fauna, it is vital to quantify how human activities such as logging, mining, and agriculture are impacting our protected natural areas. Researchers in Mexico have created the <a target="_blank" rel="noopener" href="https://jivg.org/research-projects/vigia/">VIGIA project</a>, which aims to build a system for autonomous surveillance of protected areas. A first step in such an effort is the ability to recognize the vegetation inside the protected areas. In this competition, you are tasked with creation of an algorithm that can identify a specific type of cactus in aerial imagery.</p>
+<h2 id="Data-preparation"><a href="#Data-preparation" class="headerlink" title="Data preparation"></a>Data preparation</h2><p>数据集的存放分布：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image001.png"></p>
+<p>As you know,data should be processed into appropriatly pre-processed floating point tensors before being fed to our network. So the steps for getting it into our network are roughly</p>
+<p>·   Read the picture files</p>
+<p>·   Decode JPEG content to RGB pixels</p>
+<p>·   Convert this into floating tensors</p>
+<p>·   Rescale pixel values (between 0 to 255) to [0,1] interval.</p>
+<p>we will make use of ImageDataGenerator method available in keras to do all the preprocessing.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datagen&#x3D;ImageDataGenerator(rescale&#x3D;1.&#x2F;255)</span><br><span class="line">batch_size&#x3D;150</span><br></pre></td></tr></table></figure>
+
+<h3 id="flow-from-dataframe-Method"><a href="#flow-from-dataframe-Method" class="headerlink" title="flow_from_dataframe Method"></a><code>flow_from_dataframe</code> Method</h3><p><strong>This method is useful when the images are clustered in only one folder.</strong> To put in other words images from different class/labels reside in only one folder. Generally, with such kind of data, some text files containing information on class and other parameters are provided. In this case, we will create a dataframe using pandas and text files provided, and create a meaningful dataframe with columns having file name (only the file names, not the path) and other classes to be used by the model. For this method, arguments to be used are:</p>
+<p>dataframe : Dataframe having meaningful data (file name, class columns are a must)</p>
+<p>Pandas dataframe containing the filepaths relative to directory (or absolute paths if directory is None) of the images in a string column.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image002.png"></p>
+<p>It should include other column/s depending on the <code>class_mode</code>: - if <code>class_mode</code> is <code>&quot;categorical&quot; </code>(default value) it must include the <code>y_col</code> column with the class/es of each image. Values in column can be string/list/tuple if a single class or list/tuple if multiple classes. - if <code>class_mode</code> is<code>&quot;binary&quot;</code>or <code>&quot;sparse&quot;</code> it must include the given <code>y_col</code> column with class values as strings. - if <code>lass_mode</code> is <code>&quot;other&quot;</code> it should contain the columns specified in <code>y_col</code>. - if <code>class_mode</code> is <code>&quot;input&quot;</code> or <code>None</code> no extra column is needed.</p>
+<p>directory value : The path to the parent directory containing all images.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image003.png"></p>
+<h3 id="Pandas-中的-Dataframe"><a href="#Pandas-中的-Dataframe" class="headerlink" title="Pandas 中的 Dataframe"></a>Pandas 中的 Dataframe</h3><p>定义为可包含不同类型的列的二维标记（label）数据结构。</p>
+<p>由三个主要组件组成：数据、索引和列。</p>
+<p>数据集的train.csv 文件内容：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image004.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X = pd.read_csv（‘。。。。/train.csv’）</span><br><span class="line">Print(X)</span><br></pre></td></tr></table></figure>
+
+<p>输出的结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image005.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image006.png"></p>
+<p>列名所在行不算进矩阵内。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image007.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image008.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#Getting a basic idea</span><br><span class="line">train.head(5)</span><br><span class="line">train.has_cactus&#x3D;train.has_cactus.astype(str)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">extract_features</span>(<span class="params">sample_count,<span class="built_in">dir</span>,df</span>):</span></span><br><span class="line">    features = np.zeros(shape=(sample_count,<span class="number">4</span>,<span class="number">4</span>,<span class="number">512</span>))</span><br><span class="line">    labels = np.zeros(shape=(sample_count))</span><br><span class="line">    data = train_datagen.flow_from_dataframe(</span><br><span class="line">    	dataframe=train,</span><br><span class="line">    	directory=<span class="built_in">dir</span>,</span><br><span class="line">    	x_col=<span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">    	y_col=<span class="string">&#x27;has_cactus&#x27;</span>,</span><br><span class="line">    	target_size=(<span class="number">150</span>,<span class="number">150</span>),</span><br><span class="line">    	batch_size=batch_size,</span><br><span class="line">    	class_mode=<span class="string">&#x27;binary&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>上面的代码中，因为<code>y_col</code>中的<code>“has_cactus&quot;</code>列不是字符串格式，<code>class_mode</code>不应该是<code>binary</code>。</p>
+<h2 id="pathlib介绍-比os-path更好的路径处理方式"><a href="#pathlib介绍-比os-path更好的路径处理方式" class="headerlink" title="pathlib介绍-比os.path更好的路径处理方式"></a><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/pathlib.html">pathlib</a>介绍-比os.path更好的路径处理方式</h2><p>本部分来自：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33524938">pathlib介绍-比os.path更好的路径处理方式 | 知乎</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#错误的方式：手动拼接</span><br><span class="line">data_folder &#x3D; &quot;source_data&#x2F;text_files&#x2F;&quot;</span><br><span class="line">file_to_open &#x3D; data_folder + &quot;raw_data.txt&quot;</span><br><span class="line">f&#x3D;open(file_to_open)</span><br><span class="line">print(f.read())</span><br></pre></td></tr></table></figure>
+
+<p>这样写，你不能让每个操作系统都能顺利执行。并会让其他程序员用怀疑的眼光看着你。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#旧的解决方式：os.path模块</span><br><span class="line">import os.path</span><br><span class="line">data_folder &#x3D; os.path.join(&quot;source_data&quot;, &quot;text_files&quot;)</span><br><span class="line">file_to_open &#x3D; os.path.join(data_folder, &quot;raw_data.txt&quot;)</span><br><span class="line">f &#x3D; open(file_to_open)</span><br><span class="line">print(f.read())</span><br></pre></td></tr></table></figure>
+
+<p>此代码可以在各个平台顺利运行，但是反复使用os.path.join很啰嗦。os.path有很多功能，但是比较繁琐，导致大家虽然都直到，但是就是懒得用。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更好解决方式：pathlib模块</span></span><br><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line">data_folder = Path(<span class="string">&quot;source_data/text_files/&quot;</span>)</span><br><span class="line">file_to_open = data_folder / <span class="string">&quot;raw_data.txt&quot;</span></span><br><span class="line">f = <span class="built_in">open</span>(file_to_open)</span><br><span class="line"><span class="built_in">print</span>(f.read())</span><br></pre></td></tr></table></figure>
+
+<h1 id="Dogs-vs-Cats"><a href="#Dogs-vs-Cats" class="headerlink" title="Dogs vs. Cats"></a>Dogs vs. Cats</h1><p>比赛地址：<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/dogs-vs-cats">https://www.kaggle.com/c/dogs-vs-cats</a></p>
+<h2 id="Analysis-Training-Data"><a href="#Analysis-Training-Data" class="headerlink" title="Analysis Training Data"></a>Analysis Training Data</h2><p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image023.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">filenames &#x3D; os.listdir(&quot;..&#x2F;input&#x2F;train&#x2F;train&quot;)</span><br><span class="line">categories &#x3D; []</span><br><span class="line">for filename in filenames:</span><br><span class="line">    category &#x3D; filename.split(&#39;.&#39;)[0]</span><br><span class="line">    if category &#x3D;&#x3D; &#39;dog&#39;:</span><br><span class="line">        categories.append(1)</span><br><span class="line">    else:</span><br><span class="line">        categories.append(0)</span><br><span class="line"></span><br><span class="line">df &#x3D; pd.DataFrame(&#123;</span><br><span class="line">    &#39;filename&#39;: filenames,</span><br><span class="line">    &#39;category&#39;: categories</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>创建dataframe：</p>
+<p>读 pd.read_csv(‘…‘)</p>
+<p>制作 pd.DataFrame({ })</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image024.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image025.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image026.png"></p>
+<h2 id="Prepare-Training-data"><a href="#Prepare-Training-data" class="headerlink" title="Prepare Training data"></a>Prepare Training data</h2><p>Because we will use image genaretor `with class_mode=”categorical”. We need to convert column category into string. Then imagenerator will convert it one-hot encoding which is good for our classification. </p>
+<p>So we will convert 1 to dog and 0 to cat</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&quot;catagory&quot;</span>] = df[<span class="string">&quot;catagory&quot;</span>].replace(&#123;<span class="number">0</span>: <span class="string">&#x27;cat&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;dog&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Train-test-split"><a href="#Train-test-split" class="headerlink" title="Train_test_split"></a>Train_test_split</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">...</span><br><span class="line">train_df, validate_df = train_test_split(df,test_size=<span class="number">0.20</span>, random_state=<span class="number">42</span>)</span><br><span class="line">train_df = train_index(drop=<span class="literal">True</span>)</span><br><span class="line">validate_df = validate_df.reset_index(drop=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="softmax仅包含一个单元"><a href="#softmax仅包含一个单元" class="headerlink" title="softmax仅包含一个单元"></a>softmax仅包含一个单元</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.add(Dense(2, activation&#x3D;&#39;softmax&#39;)) #2 because we have cat and dog classes</span><br></pre></td></tr></table></figure>
+
+<p>书上设为1，返回的是一个概率值。每个分组中两个类别的样本数相同，这是一个平衡的二分类问题，分类精度可作为衡量成功的指标.</p>
+<p>因为最后一层是单一sigmoid单元，所以用binary_crossentropy</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image036.png"></p>
+<p>因为使用了binary_corssentropy，所以需要用二进制标签</p>
+<p>生成器生成的二进制标签</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image037.png"></p>
+<p>对于flow_from_dataframe，column应该为string</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image038.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image039.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image040.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image041.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image042.png"></p>
+<h2 id="Prepare-data"><a href="#Prepare-data" class="headerlink" title="Prepare data"></a>Prepare data</h2><p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image043.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image044.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image045.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image046.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image047.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image048.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image049.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image050.png"></p>
+<h1 id="Digit-Recongnizer"><a href="#Digit-Recongnizer" class="headerlink" title="Digit Recongnizer"></a>Digit Recongnizer</h1><p><a target="_blank" rel="noopener" href="https://www.kaggle.com/c/digit-recognizer/overview">https://www.kaggle.com/c/digit-recognizer/overview</a></p>
+<h2 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h2><p>MNIST (“Modified National Institute of Standards and Technology”) is the de facto “hello world” dataset of computer vision. Since its release in 1999, this classic dataset of handwritten images has served as the basis for benchmarking classification algorithms. As new machine learning techniques emerge, MNIST remains a reliable resource for researchers and learners alike.</p>
+<p>In this competition, your goal is to correctly identify digits from a dataset of tens of thousands of handwritten images. We’ve curated a set of tutorial-style kernels which cover everything from regression to neural networks. We encourage you to experiment with different algorithms to learn first-hand what works well and how techniques compare.</p>
+<h2 id="Data-Analysis"><a href="#Data-Analysis" class="headerlink" title="Data Analysis"></a>Data Analysis</h2><p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image051.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image053.png"></p>
+<p>针对数据，直接操作，不用管第一行第一列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Normalize the data</span></span><br><span class="line">x_train = x_train / <span class="number">255.0</span></span><br><span class="line">test_df = test_df / <span class="number">255.0</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image057.png"></p>
+<p>Reshape后就不再是dataframe了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/image058.png"></p>
+<p><img src="D:\Blog\source_posts\image059.png"></p>
+<p>而且必须是0，不能是 ‘ ：’</p>
+<ul>
+<li>target_size: 整数元组（height, width), 默认为（256，256）。所有找到的图片都会调整到这个维度。所以必须指定。</li>
+</ul>
+<h2 id="FLOW"><a href="#FLOW" class="headerlink" title="FLOW"></a>FLOW</h2><p>这个，生成器的目标是numpy 矩阵</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flow(x, y&#x3D;None, batch_size&#x3D;32, shuffle&#x3D;True, sample_weight&#x3D;None, seed&#x3D;None, save_to_dir&#x3D;None, save_prefix&#x3D;&#39;&#39;, save_format&#x3D;&#39;png&#39;, subset&#x3D;None)</span><br></pre></td></tr></table></figure>
+
+<p>采集数据和标签数组，生成批量增强数据。</p>
+<p><strong>参数</strong></p>
+<ul>
+<li><strong>x</strong>: 输入数据。秩为 4 的 Numpy 矩阵或元组。如果是元组，第一个元素应该包含图像，第二个元素是另一个 Numpy 数组或一列 Numpy 数组，它们不经过任何修改就传递给输出。可用于将模型杂项数据与图像一起输入。对于灰度数据，图像数组的通道轴的值应该为 1；对于 RGB 数据，其值应该为 3；对于 RGBA 数据，值应该为 4。</li>
+<li><strong>y</strong>: 标签。</li>
+<li><strong>batch_size</strong>: 整数 (默认为 32)。</li>
+<li><strong>shuffle</strong>: 布尔值 (默认为 True)。</li>
+<li><strong>sample_weight</strong>: 样本权重。</li>
+<li><strong>seed</strong>: 整数（默认为 None）。</li>
+<li><strong>save_to_dir</strong>: None 或 字符串（默认为 None）。这使您可以选择指定要保存的正在生成的增强图片的目录（用于可视化您正在执行的操作）。</li>
+<li><strong>save_prefix</strong>: 字符串（默认 <code>&#39;&#39;</code>）。保存图片的文件名前缀（仅当 <code>save_to_dir</code> 设置时可用）。</li>
+<li><strong>save_format</strong>: “png”, “jpeg” 之一（仅当 <code>save_to_dir</code> 设置时可用）。默认：”png”。</li>
+<li><strong>subset</strong>: 数据子集 (“training” 或 “validation”)，如果 在 <code>ImageDataGenerator</code> 中设置了 <code>validation_split</code>。</li>
+</ul>
+<p><strong>返回</strong></p>
+<p>一个生成元组 <code>(x, y)</code> 的 <code>Iterator</code>，其中 <code>x</code> 是图像数据的 Numpy 数组（在单张图像输入时），或 Numpy 数组列表（在额外多个输入时），<code>y</code> 是对应的标签的 Numpy 数组。如果 ‘sample_weight’ 不是 None，生成的元组形式为 <code>(x, y, sample_weight)</code>。如果 <code>y</code> 是 None, 只有 Numpy 数组 <code>x</code> 被返回。</p>
+<p>见：<a target="_blank" rel="noopener" href="https://keras-zh.readthedocs.io/preprocessing/image/#fit">Keras 中文文档</a></p>
+<h1 id="NOAA-Fisheries-Steller-Sea-Lion-Population-Count"><a href="#NOAA-Fisheries-Steller-Sea-Lion-Population-Count" class="headerlink" title="NOAA Fisheries Steller Sea Lion Population Count"></a>NOAA Fisheries Steller Sea Lion Population Count</h1><p>比赛地址：<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/noaa-fisheries-steller-sea-lion-population-count">https://www.kaggle.com/c/noaa-fisheries-steller-sea-lion-population-count</a></p>
+<h2 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h2><p>Steller sea lions in the western Aleutian Islands have declined 94 percent in the last 30 years. The endangered western population, found in the North Pacific, are the focus of conservation efforts which require annual population counts. Specially trained scientists at <a target="_blank" rel="noopener" href="https://www.afsc.noaa.gov/">NOAA Fisheries Alaska Fisheries Science Center</a> conduct these surveys using airplanes and unoccupied aircraft systems to collect aerial images. Having accurate population estimates enables us to better understand factors that may be contributing to lack of recovery of Stellers in this area.</p>
+<p>Currently, it takes biologists up to four months to count sea lions from the thousands of images NOAA Fisheries collects each year. Once individual counts are conducted, the tallies must be reconciled to confirm their reliability. The results of these counts are time-sensitive.</p>
+<p>In this competition, Kagglers are invited to develop algorithms which accurately count the number of sea lions in aerial photographs. Automating the annual population count will free up critical resources allowing NOAA Fisheries to focus on ensuring we hear the sea lion’s roar for many years to come. Plus, advancements in computer vision applied to aerial population counts may also greatly benefit other endangered species.</p>
+<h2 id="高斯滤波GaussianBlur"><a href="#高斯滤波GaussianBlur" class="headerlink" title="高斯滤波GaussianBlur()"></a>高斯滤波GaussianBlur()</h2><p>平滑/模糊(**Smooth/Blur)**是图像处理中最简单和常用的操作之一，使用该操作的原因之一就为了给图像预处理时候降低噪声。图像平滑处理往往使图像中的边界、轮廓变得模糊</p>
+<h2 id="Show-image"><a href="#Show-image" class="headerlink" title="Show image"></a>Show image</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1. import cv2</span></span><br><span class="line">im = cv2.imread(<span class="string">&quot;../input/train/train/01e30c0ba6e91343a12d216fcafc0dd.jpg&quot;</span>)</span><br><span class="line">plt.imshow(im)</span><br><span class="line">...</span><br><span class="line"><span class="comment">#2. </span></span><br><span class="line"><span class="keyword">from</span> keras.preprocessing.image <span class="keyword">import</span> laod_img</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">pilotqvq</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://c-parrot.github.io/2021/06/08/Kaggle-get-start-data-analysis">https://c-parrot.github.io/2021/06/08/Kaggle-get-start-data-analysis</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/kaggle/QQ%E6%88%AA%E5%9B%BE20210604192812.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/06/03/nouns-reference-1"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/名词解释/TIM截图20190412213930.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">名词解释 - ASP后端相关</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Aerial-Cactus-identification"><span class="toc-number">1.</span> <span class="toc-text">Aerial Cactus identification</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-preparation"><span class="toc-number">1.2.</span> <span class="toc-text">Data preparation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flow-from-dataframe-Method"><span class="toc-number">1.2.1.</span> <span class="toc-text">flow_from_dataframe Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pandas-%E4%B8%AD%E7%9A%84-Dataframe"><span class="toc-number">1.2.2.</span> <span class="toc-text">Pandas 中的 Dataframe</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pathlib%E4%BB%8B%E7%BB%8D-%E6%AF%94os-path%E6%9B%B4%E5%A5%BD%E7%9A%84%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">pathlib介绍-比os.path更好的路径处理方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dogs-vs-Cats"><span class="toc-number">2.</span> <span class="toc-text">Dogs vs. Cats</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Analysis-Training-Data"><span class="toc-number">2.1.</span> <span class="toc-text">Analysis Training Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prepare-Training-data"><span class="toc-number">2.2.</span> <span class="toc-text">Prepare Training data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Train-test-split"><span class="toc-number">2.2.1.</span> <span class="toc-text">Train_test_split</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#softmax%E4%BB%85%E5%8C%85%E5%90%AB%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83"><span class="toc-number">2.2.2.</span> <span class="toc-text">softmax仅包含一个单元</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prepare-data"><span class="toc-number">2.3.</span> <span class="toc-text">Prepare data</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Digit-Recongnizer"><span class="toc-number">3.</span> <span class="toc-text">Digit Recongnizer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description-1"><span class="toc-number">3.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Analysis"><span class="toc-number">3.2.</span> <span class="toc-text">Data Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FLOW"><span class="toc-number">3.3.</span> <span class="toc-text">FLOW</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NOAA-Fisheries-Steller-Sea-Lion-Population-Count"><span class="toc-number">4.</span> <span class="toc-text">NOAA Fisheries Steller Sea Lion Population Count</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description-2"><span class="toc-number">4.1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%BB%A4%E6%B3%A2GaussianBlur"><span class="toc-number">4.2.</span> <span class="toc-text">高斯滤波GaussianBlur()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Show-image"><span class="toc-number">4.3.</span> <span class="toc-text">Show image</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By pilotqvq</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/algolia.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'e53a0a1cfef738bdcf12',
+      clientSecret: '78d3614c9635daf100666db51131822370f2fa50',
+      repo: 'C-Parrot.github.io',
+      owner: 'c-parrot',
+      admin: ['c-parrot'],
+      id: '070c9b5e9c0469d7a34fe9af17c7257d',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='/'|| '/' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body></html>
