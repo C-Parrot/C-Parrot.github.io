@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://c-parrot.github.io/2021/12/16/beginoverlap</loc>
+    
+    <lastmod>2021-12-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://c-parrot.github.io/2021/04/28/hexo-related</loc>
     
     <lastmod>2021-12-16</lastmod>
@@ -118,6 +125,13 @@
 
   
   <url>
+    <loc>https://c-parrot.github.io/categories/Linux/</loc>
+    <lastmod>2021-12-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://c-parrot.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-12-16</lastmod>
     <changefreq>daily</changefreq>
@@ -125,7 +139,7 @@
   </url>
   
   <url>
-    <loc>https://c-parrot.github.io/categories/Linux/</loc>
+    <loc>https://c-parrot.github.io/categories/UE4/</loc>
     <lastmod>2021-12-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
