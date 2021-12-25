@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://c-parrot.github.io/2021/12/25/games101-10-Geometry</loc>
+    
+    <lastmod>2021-12-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://c-parrot.github.io/2021/12/26/games101-Texture-Mapping</loc>
     
     <lastmod>2021-12-25</lastmod>
@@ -24,13 +31,6 @@
   
   <url>
     <loc>https://c-parrot.github.io/2021/12/25/games101-Surface-Shading</loc>
-    
-    <lastmod>2021-12-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/25/games101-Texture-Mapping</loc>
     
     <lastmod>2021-12-25</lastmod>
     
