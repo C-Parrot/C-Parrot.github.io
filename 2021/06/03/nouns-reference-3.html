@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>名词解释 - 仓储模式与DAO | </title><meta name="author" content="pilotqvq"><meta name="copyright" content="pilotqvq"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="DTOData Transfer Object：数据传输对象。 DTO就是前后端数据交互中用来承载数据的对象，这个对象被填充数据后就会被序列化为json、xml或其他格式，然后通过http等网络协议发送给对方。 DTO – 服务实现中的核心数据 在一个服务实现中较为常见的数据表现形式有MO（Model Object，在有些上下文中也被称为VO，Value Object）和DTO（Data Tran">
+<meta property="og:type" content="article">
+<meta property="og:title" content="名词解释 - 仓储模式与DAO">
+<meta property="og:url" content="https://c-parrot.github.io/2021/06/03/nouns-reference-3">
+<meta property="og:site_name">
+<meta property="og:description" content="DTOData Transfer Object：数据传输对象。 DTO就是前后端数据交互中用来承载数据的对象，这个对象被填充数据后就会被序列化为json、xml或其他格式，然后通过http等网络协议发送给对方。 DTO – 服务实现中的核心数据 在一个服务实现中较为常见的数据表现形式有MO（Model Object，在有些上下文中也被称为VO，Value Object）和DTO（Data Tran">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/名词解释/TIM截图20190412213930.png">
+<meta property="article:published_time" content="2021-06-03T09:24:16.000Z">
+<meta property="article:modified_time" content="2021-12-26T05:34:54.185Z">
+<meta property="article:author" content="pilotqvq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/名词解释/TIM截图20190412213930.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://c-parrot.github.io/2021/06/03/nouns-reference-3"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"HPFFJ9C6DB","apiKey":"78e3e87b096c5c0bff76287be921d775","indexName":"pilotqvq","hits":{"per_page":6},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '名词解释 - 仓储模式与DAO',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-26 13:34:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/hexo相关/无职转生.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">48</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/"></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">名词解释 - 仓储模式与DAO</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">Updated</span><time datetime="2021-12-26T05:34:54.185Z" title="undefined 2021-12-26 13:34:54">2021-12-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="名词解释 - 仓储模式与DAO"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="DTO"><a href="#DTO" class="headerlink" title="DTO"></a>DTO</h1><p>Data Transfer Object：数据传输对象。</p>
+<p>DTO就是前后端数据交互中用来承载数据的对象，这个对象被填充数据后就会被序列化为json、xml或其他格式，然后通过http等网络协议发送给对方。</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/loveis715/p/4379656.html">DTO – 服务实现中的核心数据</a></p>
+<p>在一个服务实现中较为常见的数据表现形式有MO（Model Object，在有些上下文中也被称为VO，Value Object）和DTO（Data Transfer Object）。MO用来表示从数据库中读取的数据，而DTO则用来表示在网络上所传输的数据。</p>
+<p>在一个复杂的系统中，数据库中的数据表示与系统中所传输的数据之间常常是不同的数据结构。常见的情况则是将其分为两类：一类用来访问数据库，在系统中表现数据库中所记录的数据，叫MO，即Model Object；另一类用来在网络中传输，叫DTO，即Data Transfer Object。</p>
+<p>一个最简单的Web服务主要分为数据访问层（DAL），业务逻辑层以及表现层三个部分。</p>
+<p>当数据从DAL层读取出来的时候，其所记录的数据与数据库中所记录的数据是一致的，它们就是MO。</p>
+<p>而在传输给客户端的时候，这些数据可能会和MO不同，因此其为DTO。</p>
+<p>在所需要的数据和数据库所记录的数据不再一样的时候，我们就需要考虑是否需要在项目中添加DTO了。</p>
+<p><strong>贫血的DTO</strong>：DTO中只包含数据，并没有包含任何行为。</p>
+<p>它并不擅长，甚至是不适合在业务逻辑中表示一个复杂概念。一个复杂概念常常与一些可重用的复杂逻辑关联，但这正是DTO所不能办到的。</p>
+<p>在服务端添加一个业务逻辑表现，即BO（Business Object）。在这种情况下，MO将不会直接转化为DTO，而是转化为BO。在所有业务处理完毕并需要将数据发送给客户的时候，BO将转化为DTO以进行传输。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/image004.png"></p>
+<p>而在客户端，我们同样可以引入一层新的更适合于页面逻辑的数据表现。这种数据表现被称为VM（ViewModel）</p>
+<p>DAO则是一种组织数据库访问逻辑的一种标准<strong>模式</strong>。也就是说，与其对应的应该是Repository模式等一系列数据访问的常用方法。因此在最后，重强调DAO和MO并不是一个概念。</p>
+<h1 id="仓储-Respository-模式"><a href="#仓储-Respository-模式" class="headerlink" title="仓储 Respository 模式"></a>仓储 Respository 模式</h1><p>它是软件设计模式的一部分。</p>
+<p>I’ve noticed in the .NET world specifically the term “Repository” is used to refer to what is essentially a DAO; “DAO” is more of a Java term. </p>
+<h2 id="DAO-：-Data-access-object-for-database-operations-如CRUD"><a href="#DAO-：-Data-access-object-for-database-operations-如CRUD" class="headerlink" title="DAO ： Data access object  for database operations (如CRUD)"></a>DAO ： Data access object  for database operations (如CRUD)</h2><p>The Data Access Object is basically an object or an interface that provides access to an underlying database or any other persistence storage.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/image005.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/image006.png"></p>
+<p>The Employee DAO will contain methods to insert/delete/update/select employee(s)</p>
+<p>Why we use DAO</p>
+<p>If your application uses stored procedures and database-specific code (such as generating a number sequence), how do you handle that in your application? You have two options:</p>
+<p>·     Rewrite your application to use SQL Server instead of Oracle (or add conditional code to handle the differences), or</p>
+<p>·     Create a layer inbetween your application logic and the data access</p>
+<p> Its in all referred as <strong>DAO Pattern</strong>, It consist of following:</p>
+<p><strong>Data Access Object Interface</strong></p>
+<p><strong>Data Access Object concrete class</strong></p>
+<p><strong>Model Object or Value Object</strong> This object is <em>simple POJO</em></p>
+<h2 id="Repository-vs-DAO"><a href="#Repository-vs-DAO" class="headerlink" title="Repository vs DAO"></a><a target="_blank" rel="noopener" href="https://blog.sapiensworks.com/post/2012/11/01/Repository-vs-DAO.aspx">Repository vs DAO</a></h2><p>the difference starts to show up when you have more complex apps with complex business behavior. </p>
+<p> they have different intentions in mind.</p>
+<p>A DAO is much closer to the underlying storage , A DAO allows for a simpler way to get data from a storage, hiding the ugly queries. But the important part is that they return data as in <strong>object state</strong>.</p>
+<p>A repository sits at a higher level. It deals with data too and hides queries and all that but, a repository deals with<strong>business/domain objects</strong>. That’s the difference. use a DAO to get the data from the storage and uses that data to restore a business object.</p>
+<p> most of the time a specialized query repository is <strong>just a DAO sending DTOs to a higher layer.</strong></p>
+<p><strong>the intention of the repository is to isolate the domain objects from the database access concerns. This is the important part.</strong> The fact that the repository is using a collection-like interface, doesn’t mean you MUST treat it as a collection and you MUST have ONLY Add/Remove/Get/Find functionality. Really, it’s not a dogma and you don’t have to apply it by the letter.</p>
+<p><strong>programming is not a religion</strong>. But developers trend to disagree and adopt it as a religion. It’s kind annoying and it is the reason why I hate the programming community.</p>
+<p>Back to Repository and DAO, in conclusion, they have similar intentions only that the Repository is a higher level concept dealing directly with business/domain objects, while DAO is more lower level, closer to the database/storage dealing only with data. A (micro)ORM is a DAO that is used by a Repository. For data-centric apps, a repository and DAO are interchangeable because the ‘business’ objects are simple data.</p>
+<p>Dao (methods, insert(),update(), etc.)</p>
+<p>repo(methods (addCustomer(), calculateDebt()) but they also could insert(),update()</p>
+<p>Repository是对象的仓库，也就是保存对象的地方，这个仓库就是我们普通意义的仓库，一个真正OO系统，业务层是围绕活动的对象进行，活动的对象是从仓库中获取的，也是通过交给仓库进行对象长久保管，也就是持久化意思，说白了，就是保存到数据库。</p>
+<p>仓库和工厂一般配合在一起使用，工厂用来创建对象，不过是从仓库中。</p>
+<p>Repository=对象工厂+对象缓存+DAO 是这样一个组成。</p>
+<p>DAO主要的工作是负责对象的存取，不应该将对象的管理放在DAO中。</p>
+<p>而Repository除了可以存取对象外，还应包括对对象的管理。</p>
+<p>我个人认为：Repository = 对象的管理 ＋ DAO。对象的管理如：对象缓存，对象在Repository的状态等。</p>
+<p>DAO是对象访问接口类.接口类=方法的管理类</p>
+<p>repository是对象仓库类.仓库类=对象的管理类</p>
+<p>至于DAO是不是取消，就看DAL的设计了</p>
+<p>业务是只管从仓库（Repository）中取出他所需要的对象，而不关心是从哪里存取，这些是Repository 的事情，Repository 可能通过DAO将数据完成持久化</p>
+<p>repository是domain概念，dao是program概念。主要是看问题的角度和层次不同。</p>
+<p>DAO就是数据库访问层，提供数据库CRUD操作。被包含在Reposirtory之内。</p>
+<p>如果业务层直接调用DAO层，那么系统设计应该趋向数据库设计。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">pilotqvq</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://c-parrot.github.io/2021/06/03/nouns-reference-3">https://c-parrot.github.io/2021/06/03/nouns-reference-3</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/名词解释/TIM截图20190412213930.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/06/03/nouns-reference-2"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/名词解释/TIM截图20190412213930.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">名词解释 - 依赖注入与控制反转</div></div></a></div><div class="next-post pull-right"><a href="/2021/06/03/nouns-reference-5"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/c-parrot/source/img/blog/名词解释/TIM截图20190412213930.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">名词解释 - SPA与MPA</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DTO"><span class="toc-number">1.</span> <span class="toc-text">DTO</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%93%E5%82%A8-Respository-%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">仓储 Respository 模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DAO-%EF%BC%9A-Data-access-object-for-database-operations-%E5%A6%82CRUD"><span class="toc-number">2.1.</span> <span class="toc-text">DAO ： Data access object  for database operations (如CRUD)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Repository-vs-DAO"><span class="toc-number">2.2.</span> <span class="toc-text">Repository vs DAO</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By pilotqvq</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="Increase font size"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="Decrease font size"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/algolia.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'e53a0a1cfef738bdcf12',
+      clientSecret: '78d3614c9635daf100666db51131822370f2fa50',
+      repo: 'C-Parrot.github.io',
+      owner: 'c-parrot',
+      admin: ['c-parrot'],
+      id: '38e3fd970ae8ac176a4259e34eaae3ff',
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='/'|| '/' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><!-- hexo injector body_end end --></body></html>
