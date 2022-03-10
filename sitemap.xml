@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://c-parrot.github.io/2021/01/20/cuda-opencv-python-gpu</loc>
+    
+    <lastmod>2022-03-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://c-parrot.github.io/2021/04/30/install-program</loc>
     
     <lastmod>2022-03-05</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>https://c-parrot.github.io/2021/12/30/ue4-debug</loc>
-    
-    <lastmod>2021-12-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/31/ue4-blueprint-introduction</loc>
     
     <lastmod>2021-12-28</lastmod>
     
@@ -434,6 +434,13 @@
   
   <url>
     <loc>https://c-parrot.github.io/categories/%E4%B9%A6%E7%B1%8D/</loc>
+    <lastmod>2022-03-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://c-parrot.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-03-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
