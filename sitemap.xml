@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://c-parrot.github.io/2022/02/15/win-linux</loc>
-    
-    <lastmod>2022-03-10</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://c-parrot.github.io/2022/02/01/cuda-cudnn</loc>
     
     <lastmod>2022-03-10</lastmod>
@@ -16,7 +9,7 @@
   </url>
   
   <url>
-    <loc>https://c-parrot.github.io/2022/01/20/cuda-opencv</loc>
+    <loc>https://c-parrot.github.io/2022/02/15/win-linux</loc>
     
     <lastmod>2022-03-10</lastmod>
     
@@ -24,6 +17,13 @@
   
   <url>
     <loc>https://c-parrot.github.io/2021/04/30/install-program</loc>
+    
+    <lastmod>2022-03-10</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://c-parrot.github.io/2022/01/20/cuda-opencv</loc>
     
     <lastmod>2022-03-10</lastmod>
     
