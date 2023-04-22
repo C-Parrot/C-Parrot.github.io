@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://c-parrot.github.io/2021/05/26/git-github</loc>
+    
+    <lastmod>2023-04-22</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://c-parrot.github.io/2021/12/20/games101-overview-of-computer-graphics</loc>
     
     <lastmod>2023-04-22</lastmod>
@@ -9,21 +16,7 @@
   </url>
   
   <url>
-    <loc>https://c-parrot.github.io/2021/12/29/games101-21-Animation</loc>
-    
-    <lastmod>2023-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/26/games101-Texture-Mapping</loc>
-    
-    <lastmod>2023-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/24/games101-Surface-Shading</loc>
+    <loc>https://c-parrot.github.io/2021/12/20/games101-overview-of-computer-graphics</loc>
     
     <lastmod>2023-04-22</lastmod>
     
@@ -31,48 +24,6 @@
   
   <url>
     <loc>https://c-parrot.github.io/2023/04/19/springboot-security</loc>
-    
-    <lastmod>2023-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/22/games101-transformation</loc>
-    
-    <lastmod>2023-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/28/games101-13-ray-tracing</loc>
-    
-    <lastmod>2023-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/27/games101-10-Geometry</loc>
-    
-    <lastmod>2023-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/25/games101-Surface-Shading</loc>
-    
-    <lastmod>2023-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/23/games101-Raster-Images</loc>
-    
-    <lastmod>2023-04-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2021/12/21/games101-transformation</loc>
     
     <lastmod>2023-04-22</lastmod>
     
