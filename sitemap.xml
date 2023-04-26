@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://c-parrot.github.io/2023/04/26/springboot-muti-module</loc>
+    <loc>https://c-parrot.github.io/2023/04/26/springboot-yudao-permission</loc>
+    
+    <lastmod>2023-04-26</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://c-parrot.github.io/2023/04/26/springboot-ruoyi-plus-permission</loc>
     
     <lastmod>2023-04-26</lastmod>
     
@@ -10,13 +17,6 @@
   
   <url>
     <loc>https://c-parrot.github.io/2022/04/23/Kaggle-get-start-data-analysis</loc>
-    
-    <lastmod>2023-04-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://c-parrot.github.io/2023/04/26/springboot-muti-module</loc>
     
     <lastmod>2023-04-25</lastmod>
     
